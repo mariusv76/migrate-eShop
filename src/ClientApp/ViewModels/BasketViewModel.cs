@@ -1,3 +1,4 @@
+﻿#nullable enable
 using eShop.ClientApp.Models.Basket;
 using eShop.ClientApp.Services;
 using eShop.ClientApp.Services.AppEnvironment;
@@ -11,6 +12,9 @@ public partial class BasketViewModel : ViewModelBase
     private readonly IAppEnvironmentService _appEnvironmentService;
     private readonly ObservableCollectionEx<BasketItem> _basketItems = new();
     private readonly ISettingsService _settingsService;
+
+    [ObservableProperty]
+    private BasketItem? _selectedItem;
 
     public BasketViewModel(
         IAppEnvironmentService appEnvironmentService,

@@ -1,4 +1,4 @@
-#nullable enable
+﻿#nullable enable
 using CommunityToolkit.Mvvm.Messaging;
 using eShop.ClientApp.Messages;
 using eShop.ClientApp.Models.Catalog;
@@ -28,6 +28,8 @@ public partial class CatalogViewModel : ViewModelBase
     private CatalogBrand? _selectedBrand;
 
     [ObservableProperty] private CatalogItem? _selectedProduct;
+
+    [ObservableProperty] private CatalogItem? _selectedItem;
 
     [ObservableProperty]
     [NotifyPropertyChangedFor(nameof(CanFilter))]
@@ -82,8 +84,22 @@ public partial class CatalogViewModel : ViewModelBase
                 BadgeCount = basket.ItemCount;
 
                 _products.ReloadData(products);
-                _brands.ReloadData(brands.Select(x => new CatalogBrandSelectionViewModel {Value = x}));
-                _types.ReloadData(types.Select(x => new CatalogTypeSelectionViewModel {Value = x}));
+
+                // Initialize brands with commands
+                var brandViewModels = brands.Select(x => new CatalogBrandSelectionViewModel
+                {
+                    Value = x,
+                    SelectCatalogBrandCommand = SelectCatalogBrandCommand
+                });
+                _brands.ReloadData(brandViewModels);
+
+                // Initialize types with commands
+                var typeViewModels = types.Select(x => new CatalogTypeSelectionViewModel
+                {
+                    Value = x,
+                    SelectCatalogTypeCommand = SelectCatalogTypeCommand
+                });
+                _types.ReloadData(typeViewModels);
             });
     }
 
@@ -198,8 +214,10 @@ public partial class CatalogViewModel : ViewModelBase
 
 public class CatalogBrandSelectionViewModel : SelectionViewModel<CatalogBrand>
 {
+    public IRelayCommand<CatalogBrand?> SelectCatalogBrandCommand { get; set; } = null!;
 }
 
 public class CatalogTypeSelectionViewModel : SelectionViewModel<CatalogType>
 {
+    public IRelayCommand<CatalogType?> SelectCatalogTypeCommand { get; set; } = null!;
 }

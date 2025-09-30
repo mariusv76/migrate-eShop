@@ -97,9 +97,10 @@ if (useOpenAI)
         //   "SubscriptionId": "<your subscription ID>"
         //   "Location": "<location>"
         // }
-        openAI = builder.AddAzureOpenAI(openAIName)
-            .AddDeployment(new AzureOpenAIDeployment(chatModelName, "gpt-35-turbo", "0613"))
-            .AddDeployment(new AzureOpenAIDeployment(textEmbeddingName, "text-embedding-3-small", "1"));
+        var azureOpenAI = builder.AddAzureOpenAI(openAIName);
+        var chatDeployment = azureOpenAI.AddDeployment(chatModelName, "gpt-35-turbo", "0613");
+        var embeddingDeployment = azureOpenAI.AddDeployment(textEmbeddingName, "text-embedding-3-small", "1");
+        openAI = azureOpenAI;
     }
 
     catalogApi

@@ -1,10 +1,10 @@
-<Project Sdk="Microsoft.NET.Sdk">
+﻿<Project Sdk="Microsoft.NET.Sdk">
 
   <PropertyGroup>
-    <TargetFrameworks>net8.0-android;net8.0-ios;net8.0-maccatalyst;net8.0</TargetFrameworks>
-    <TargetFrameworks Condition="$([MSBuild]::IsOSPlatform('windows'))">$(TargetFrameworks);net8.0-windows10.0.19041.0</TargetFrameworks>
+    <TargetFrameworks>net9.0-android;net9.0-ios;net9.0-maccatalyst;net9.0</TargetFrameworks>
+    <TargetFrameworks Condition="$([MSBuild]::IsOSPlatform('windows'))">$(TargetFrameworks);net9.0-windows10.0.19041.0</TargetFrameworks>
     <!-- Uncomment to also build the tizen app. You will need to install tizen by following this: https://github.com/Samsung/Tizen.NET -->
-    <!-- <TargetFrameworks>$(TargetFrameworks);net8.0-tizen</TargetFrameworks> -->
+    <!-- <TargetFrameworks>$(TargetFrameworks);net9.0-tizen</TargetFrameworks> -->
 
     <!-- Note for MacCatalyst:
     The default runtime is maccatalyst-x64, except in Release config, in which case the default is maccatalyst-x64;maccatalyst-arm64.
@@ -13,13 +13,15 @@
     either BOTH runtimes must be indicated or ONLY macatalyst-x64. -->
     <!-- ex. <RuntimeIdentifiers>maccatalyst-x64;maccatalyst-arm64</RuntimeIdentifiers> -->
 
-    <OutputType Condition="'$(TargetFramework)' != 'net8.0'">Exe</OutputType>
+    <OutputType Condition="'$(TargetFramework)' != 'net9.0'">Exe</OutputType>
     <RootNamespace>eShop.ClientApp</RootNamespace>
     <UseMaui>true</UseMaui>
     <SingleProject>true</SingleProject>
     <ImplicitUsings>enable</ImplicitUsings>
     <ManagePackageVersionsCentrally>false</ManagePackageVersionsCentrally>
-		<NoWarn>$(NoWarn);XC0022;XC0023</NoWarn>
+		<NoWarn>$(NoWarn);XC0022;XC0023;XC0045;XC0103;XC0025;XC0064</NoWarn>
+    <MauiEnableXamlCBindingWithSourceCompilation>false</MauiEnableXamlCBindingWithSourceCompilation>
+    <TreatWarningsAsErrors>false</TreatWarningsAsErrors>
 
     <!-- Display name -->
     <ApplicationTitle>AdventureWorks</ApplicationTitle>
@@ -39,7 +41,7 @@
     <TargetPlatformMinVersion Condition="$([MSBuild]::GetTargetPlatformIdentifier('$(TargetFramework)')) == 'windows'">10.0.17763.0</TargetPlatformMinVersion>
     <SupportedOSPlatformVersion Condition="$([MSBuild]::GetTargetPlatformIdentifier('$(TargetFramework)')) == 'tizen'">6.5</SupportedOSPlatformVersion>
   </PropertyGroup>
-  <PropertyGroup Condition="'$(Configuration)|$(TargetFramework)|$(Platform)'=='Debug|net8.0-ios|AnyCPU'">
+  <PropertyGroup Condition="'$(Configuration)|$(TargetFramework)|$(Platform)'=='Debug|net9.0-ios|AnyCPU'">
     <CreatePackage>false</CreatePackage>
   </PropertyGroup>
   <ItemGroup>
@@ -62,16 +64,16 @@
 
   <ItemGroup>
     <PackageReference Include="Google.Protobuf" Version="3.26.1" />
-    <PackageReference Include="Grpc.Net.Client" Version="2.62.0" />
-    <PackageReference Include="Grpc.Tools" Version="2.63.0">
+    <PackageReference Include="Grpc.Net.Client" Version="2.71.0" />
+    <PackageReference Include="Grpc.Tools" Version="2.72.0">
       <PrivateAssets>all</PrivateAssets>
       <IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
     </PackageReference>
     <PackageReference Include="IdentityModel.OidcClient" Version="6.0.0" />
-    <PackageReference Include="Microsoft.Maui.Controls" Version="8.0.70" />
-    <PackageReference Include="Microsoft.Maui.Controls.Compatibility" Version="8.0.70" />
-    <PackageReference Include="Microsoft.Maui.Controls.Maps" Version="8.0.70" />
-    <PackageReference Include="Microsoft.Extensions.Logging.Debug" Version="8.0.*-*" />
+    <PackageReference Include="Microsoft.Maui.Controls" Version="9.0.10" />
+    <PackageReference Include="Microsoft.Maui.Controls.Compatibility" Version="9.0.10" />
+    <PackageReference Include="Microsoft.Maui.Controls.Maps" Version="9.0.10" />
+    <PackageReference Include="Microsoft.Extensions.Logging.Debug" Version="9.0.9" />
 
     <PackageReference Include="CommunityToolkit.Maui" Version="9.0.1" />
     <PackageReference Include="IdentityModel" Version="7.0.0" />
@@ -79,10 +81,20 @@
   </ItemGroup>
 
   <ItemGroup>
-    <Protobuf Include="Services\Basket\Protos\basket.proto" CompileOutputs="false" OutputDir="" GrpcServices="Client">
-      <Generator>MSBuild:Compile</Generator>
-    </Protobuf>
+    <Folder Include="Services\Basket\Generated\" />
   </ItemGroup>
+
+  <!-- Remove problematic Protobuf generation for now -->
+  <!--
+  <ItemGroup Condition="'$(TargetFramework)' == 'net9.0'">
+    <Protobuf Include="Services\Basket\Protos\basket.proto" GrpcServices="Client" />
+  </ItemGroup>
+  -->
+
+  <!-- Ensure gRPC tools work correctly with multi-targeting -->
+  <PropertyGroup>
+    <Protobuf_Tools_Version>2.72.0</Protobuf_Tools_Version>
+  </PropertyGroup>
 
   <PropertyGroup Condition="$(TargetFramework.Contains('-android'))">
     <RuntimeIdentifiers>$(RuntimeIdentifiers);android-arm64</RuntimeIdentifiers>

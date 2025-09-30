@@ -1,4 +1,5 @@
-﻿using eShop.ClientApp.Models.Orders;
+﻿#nullable enable
+using eShop.ClientApp.Models.Orders;
 using eShop.ClientApp.Services;
 using eShop.ClientApp.Services.AppEnvironment;
 using eShop.ClientApp.Services.Settings;
@@ -13,6 +14,8 @@ public partial class ProfileViewModel : ViewModelBase
     private readonly ISettingsService _settingsService;
 
     [ObservableProperty] private Order _selectedOrder;
+    
+    [ObservableProperty] private Order? _selectedItem;
 
     public ProfileViewModel(
         IAppEnvironmentService appEnvironmentService, ISettingsService settingsService,
