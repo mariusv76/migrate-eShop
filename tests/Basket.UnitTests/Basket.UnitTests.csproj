@@ -23,6 +23,8 @@
       <PrivateAssets>all</PrivateAssets>
       <IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
     </PackageReference>
+    <PackageReference Include="Microsoft.AspNetCore.TestHost" VersionOverride="9.0.9" />
+    <PackageReference Include="Polly.Core" VersionOverride="8.6.3" />
   </ItemGroup>
 
   <ItemGroup>
