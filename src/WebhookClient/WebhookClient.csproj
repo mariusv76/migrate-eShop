@@ -12,6 +12,8 @@
     <PackageReference Include="Asp.Versioning.Http.Client" />
     <PackageReference Include="Microsoft.AspNetCore.Authentication.OpenIdConnect" />
     <PackageReference Include="Microsoft.AspNetCore.Components.QuickGrid" />
+    <PackageReference Include="Microsoft.AspNetCore.Components.Web" VersionOverride="9.0.9" />
+    <PackageReference Include="Polly.Core" VersionOverride="8.4.2" />
   </ItemGroup>
 
 </Project>
