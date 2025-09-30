@@ -22,5 +22,7 @@
     <PackageReference Include="OpenTelemetry.Instrumentation.GrpcNetClient" />
     <PackageReference Include="OpenTelemetry.Instrumentation.Http" />
     <PackageReference Include="OpenTelemetry.Instrumentation.Runtime" />
+    <PackageReference Include="Microsoft.Extensions.Options.ConfigurationExtensions" VersionOverride="9.0.9" />
+    <PackageReference Include="Polly.Core" VersionOverride="8.4.2" />
   </ItemGroup>
 </Project>
