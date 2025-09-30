@@ -1,0 +1,192 @@
+Summary
+  Generated on: 9/30/2025 - 1:29:47 PM
+  Coverage date: 9/30/2025 - 1:12:44 PM - 9/30/2025 - 1:28:39 PM
+  Parser: MultiReport (2x Cobertura)
+  Assemblies: 8
+  Classes: 156
+  Files: 152
+  Line coverage: 17.9%
+  Covered lines: 1036
+  Uncovered lines: 4736
+  Coverable lines: 5772
+  Total lines: 9503
+  Branch coverage: 17.8% (136 of 762)
+  Covered branches: 136
+  Total branches: 762
+  Method coverage: 33.7% (245 of 727)
+  Full method coverage: 30.9% (225 of 727)
+  Covered methods: 245
+  Fully covered methods: 225
+  Total methods: 727
+
+Basket.API                                                                                                             7.9%
+  eShop.Basket.API.Extensions.Extensions                                                                                 0%
+  eShop.Basket.API.Extensions.IntegrationEventContext                                                                    0%
+  eShop.Basket.API.Extensions.ServerCallContextIdentityExtensions                                                       50%
+  eShop.Basket.API.Grpc.Basket                                                                                           0%
+  eShop.Basket.API.Grpc.BasketItem                                                                                     9.8%
+  eShop.Basket.API.Grpc.BasketReflection                                                                                 0%
+  eShop.Basket.API.Grpc.BasketService                                                                                 87.8%
+  eShop.Basket.API.Grpc.CustomerBasketResponse                                                                         5.3%
+  eShop.Basket.API.Grpc.DeleteBasketRequest                                                                            3.2%
+  eShop.Basket.API.Grpc.DeleteBasketResponse                                                                           3.2%
+  eShop.Basket.API.Grpc.GetBasketRequest                                                                               3.2%
+  eShop.Basket.API.Grpc.UpdateBasketRequest                                                                            5.3%
+  eShop.Basket.API.IntegrationEvents.EventHandling.Events.OrderStartedIntegrationEvent                                   0%
+  eShop.Basket.API.IntegrationEvents.EventHandling.OrderStartedIntegrationEventHandler                                   0%
+  eShop.Basket.API.Model.BasketItem                                                                                     20%
+  eShop.Basket.API.Model.CustomerBasket                                                                               42.8%
+  eShop.Basket.API.Repositories.BasketSerializationContext                                                               0%
+  eShop.Basket.API.Repositories.RedisBasketRepository                                                                    0%
+  Program                                                                                                                0%
+
+eShop.ServiceDefaults                                                                                                    0%
+  eShop.ServiceDefaults.AuthenticationExtensions                                                                         0%
+  eShop.ServiceDefaults.ClaimsPrincipalExtensions                                                                        0%
+  eShop.ServiceDefaults.ConfigureSwaggerOptions                                                                          0%
+  eShop.ServiceDefaults.Extensions                                                                                       0%
+  eShop.ServiceDefaults.HttpClientExtensions                                                                             0%
+  eShop.ServiceDefaults.OpenApiDefaultValues                                                                             0%
+  Microsoft.Extensions.Configuration.ConfigurationExtensions                                                             0%
+
+EventBus                                                                                                              42.8%
+  eShop.EventBus.Abstractions.EventBusSubscriptionInfo                                                                   0%
+  eShop.EventBus.Abstractions.IIntegrationEventHandler<T>                                                                0%
+  eShop.EventBus.Events.IntegrationEvent                                                                              87.5%
+  eShop.EventBus.Extensions.GenericTypeExtensions                                                                      100%
+  Microsoft.Extensions.DependencyInjection.EventBusBuilderExtensions                                                     0%
+
+EventBusRabbitMQ                                                                                                         0%
+  ActivityExtensions                                                                                                     0%
+  eShop.EventBusRabbitMQ.EventBusOptions                                                                                 0%
+  eShop.EventBusRabbitMQ.RabbitMQEventBus                                                                                0%
+  eShop.EventBusRabbitMQ.RabbitMQTelemetry                                                                               0%
+  Microsoft.Extensions.Configuration.Binder.SourceGeneration                                                             0%
+  Microsoft.Extensions.Hosting.RabbitMqDependencyInjectionExtensions                                                     0%
+  System.Runtime.CompilerServices                                                                                        0%
+
+IntegrationEventLogEF                                                                                                  7.9%
+  eShop.IntegrationEventLogEF.IntegrationEventLogEntry                                                                   0%
+  eShop.IntegrationEventLogEF.IntegrationLogExtensions                                                                 100%
+  eShop.IntegrationEventLogEF.Services.IntegrationEventLogService<T>                                                     0%
+  eShop.IntegrationEventLogEF.Utilities.ResilientTransaction                                                             0%
+
+Ordering.API                                                                                                          33.5%
+  ActivityExtensions                                                                                                     0%
+  CreateOrderRequest                                                                                                     0%
+  eShop.Ordering.API.Application.Behaviors.LoggingBehavior<T1, T2>                                                       0%
+  eShop.Ordering.API.Application.Behaviors.TransactionBehavior<T1, T2>                                                   0%
+  eShop.Ordering.API.Application.Behaviors.ValidatorBehavior<T1, T2>                                                     0%
+  eShop.Ordering.API.Application.Commands.CancelOrderCommand                                                           100%
+  eShop.Ordering.API.Application.Commands.CancelOrderCommandHandler                                                    100%
+  eShop.Ordering.API.Application.Commands.CancelOrderIdentifiedCommandHandler                                            0%
+  eShop.Ordering.API.Application.Commands.CreateOrderCommand                                                          88.5%
+  eShop.Ordering.API.Application.Commands.CreateOrderCommandHandler                                                    100%
+  eShop.Ordering.API.Application.Commands.CreateOrderDraftCommand                                                        0%
+  eShop.Ordering.API.Application.Commands.CreateOrderDraftCommandHandler                                                 0%
+  eShop.Ordering.API.Application.Commands.CreateOrderIdentifiedCommandHandler                                          100%
+  eShop.Ordering.API.Application.Commands.IdentifiedCommand<T1, T2>                                                    100%
+  eShop.Ordering.API.Application.Commands.IdentifiedCommandHandler<T1, T2>                                            77.7%
+  eShop.Ordering.API.Application.Commands.OrderDraftDTO                                                                  0%
+  eShop.Ordering.API.Application.Commands.OrderItemDTO                                                                85.7%
+  eShop.Ordering.API.Application.Commands.SetAwaitingValidationIdentifiedOrderStatusCommandHandler                       0%
+  eShop.Ordering.API.Application.Commands.SetAwaitingValidationOrderStatusCommand                                      100%
+  eShop.Ordering.API.Application.Commands.SetAwaitingValidationOrderStatusCommandHandler                               100%
+  eShop.Ordering.API.Application.Commands.SetPaidIdentifiedOrderStatusCommandHandler                                     0%
+  eShop.Ordering.API.Application.Commands.SetPaidOrderStatusCommand                                                      0%
+  eShop.Ordering.API.Application.Commands.SetPaidOrderStatusCommandHandler                                               0%
+  eShop.Ordering.API.Application.Commands.SetStockConfirmedOrderStatusCommand                                          100%
+  eShop.Ordering.API.Application.Commands.SetStockConfirmedOrderStatusCommandHandler                                     0%
+  eShop.Ordering.API.Application.Commands.SetStockConfirmedOrderStatusIdentifiedCommandHandler                           0%
+  eShop.Ordering.API.Application.Commands.SetStockRejectedOrderStatusCommand                                           100%
+  eShop.Ordering.API.Application.Commands.SetStockRejectedOrderStatusCommandHandler                                    100%
+  eShop.Ordering.API.Application.Commands.SetStockRejectedOrderStatusIdentifiedCommandHandler                            0%
+  eShop.Ordering.API.Application.Commands.ShipOrderCommand                                                             100%
+  eShop.Ordering.API.Application.Commands.ShipOrderCommandHandler                                                      100%
+  eShop.Ordering.API.Application.Commands.ShipOrderIdentifiedCommandHandler                                              0%
+  eShop.Ordering.API.Application.DomainEventHandlers.OrderCancelledDomainEventHandler                                    0%
+  eShop.Ordering.API.Application.DomainEventHandlers.OrderShippedDomainEventHandler                                    100%
+  eShop.Ordering.API.Application.DomainEventHandlers.OrderStatusChangedToAwaitingValidationDomainEventHandler          100%
+  eShop.Ordering.API.Application.DomainEventHandlers.OrderStatusChangedToPaidDomainEventHandler                          0%
+  eShop.Ordering.API.Application.DomainEventHandlers.OrderStatusChangedToStockConfirmedDomainEventHandler              100%
+  eShop.Ordering.API.Application.DomainEventHandlers.UpdateOrderWhenBuyerAndPaymentMethodVerifiedDomainEventHandler      0%
+  eShop.Ordering.API.Application.DomainEventHandlers.ValidateOrAddBuyerAggregateWhenOrderStartedDomainEventHandler       0%
+  eShop.Ordering.API.Application.IntegrationEvents.EventHandling.GracePeriodConfirmedIntegrationEventHandler           100%
+  eShop.Ordering.API.Application.IntegrationEvents.EventHandling.OrderPaymentFailedIntegrationEventHandler               0%
+  eShop.Ordering.API.Application.IntegrationEvents.EventHandling.OrderPaymentSucceededIntegrationEventHandler            0%
+  eShop.Ordering.API.Application.IntegrationEvents.EventHandling.OrderStockConfirmedIntegrationEventHandler            100%
+  eShop.Ordering.API.Application.IntegrationEvents.EventHandling.OrderStockRejectedIntegrationEventHandler             100%
+  eShop.Ordering.API.Application.IntegrationEvents.Events.ConfirmedOrderStockItem                                     87.5%
+  eShop.Ordering.API.Application.IntegrationEvents.Events.GracePeriodConfirmedIntegrationEvent                          75%
+  eShop.Ordering.API.Application.IntegrationEvents.Events.OrderPaymentFailedIntegrationEvent                             0%
+  eShop.Ordering.API.Application.IntegrationEvents.Events.OrderPaymentSucceededIntegrationEvent                          0%
+  eShop.Ordering.API.Application.IntegrationEvents.Events.OrderStartedIntegrationEvent                                  75%
+  eShop.Ordering.API.Application.IntegrationEvents.Events.OrderStatusChangedToAwaitingValidationIntegrationEvent      68.7%
+  eShop.Ordering.API.Application.IntegrationEvents.Events.OrderStatusChangedToCancelledIntegrationEvent                  0%
+  eShop.Ordering.API.Application.IntegrationEvents.Events.OrderStatusChangedToPaidIntegrationEvent                       0%
+  eShop.Ordering.API.Application.IntegrationEvents.Events.OrderStatusChangedToShippedIntegrationEvent                 69.2%
+  eShop.Ordering.API.Application.IntegrationEvents.Events.OrderStatusChangedToStockConfirmedIntegrationEvent          69.2%
+  eShop.Ordering.API.Application.IntegrationEvents.Events.OrderStatusChangedToSubmittedIntegrationEvent                  0%
+  eShop.Ordering.API.Application.IntegrationEvents.Events.OrderStockConfirmedIntegrationEvent                         66.6%
+  eShop.Ordering.API.Application.IntegrationEvents.Events.OrderStockItem                                                 0%
+  eShop.Ordering.API.Application.IntegrationEvents.Events.OrderStockRejectedIntegrationEvent                          88.8%
+  eShop.Ordering.API.Application.IntegrationEvents.OrderingIntegrationEventService                                       0%
+  eShop.Ordering.API.Application.Models.BasketItem                                                                    71.4%
+  eShop.Ordering.API.Application.Models.CustomerBasket                                                                   0%
+  eShop.Ordering.API.Application.Queries.CardType                                                                        0%
+  eShop.Ordering.API.Application.Queries.Order                                                                           0%
+  eShop.Ordering.API.Application.Queries.Orderitem                                                                       0%
+  eShop.Ordering.API.Application.Queries.OrderQueries                                                                    0%
+  eShop.Ordering.API.Application.Queries.OrderSummary                                                                    0%
+  eShop.Ordering.API.Application.Validations.CancelOrderCommandValidator                                                 0%
+  eShop.Ordering.API.Application.Validations.CreateOrderCommandValidator                                                 0%
+  eShop.Ordering.API.Application.Validations.IdentifiedCommandValidator                                                  0%
+  eShop.Ordering.API.Application.Validations.ShipOrderCommandValidator                                                   0%
+  eShop.Ordering.API.Extensions.BasketItemExtensions                                                                   100%
+  eShop.Ordering.API.Extensions.LinqSelectExtensions                                                                     0%
+  eShop.Ordering.API.Extensions.OrderingApiTrace                                                                       7.3%
+  eShop.Ordering.API.Infrastructure.OrderingContextSeed                                                                  0%
+  eShop.Ordering.API.Infrastructure.Services.IdentityService                                                             0%
+  Extensions                                                                                                             0%
+  Microsoft.AspNetCore.Hosting.MigrateDbContextExtensions                                                                0%
+  OrdersApi                                                                                                           44.7%
+  OrderServices                                                                                                        100%
+  Program                                                                                                                0%
+
+Ordering.Domain                                                                                                       83.2%
+  eShop.Ordering.Domain.AggregatesModel.BuyerAggregate.Buyer                                                           100%
+  eShop.Ordering.Domain.AggregatesModel.BuyerAggregate.CardType                                                        100%
+  eShop.Ordering.Domain.AggregatesModel.BuyerAggregate.PaymentMethod                                                  89.4%
+  eShop.Ordering.Domain.AggregatesModel.OrderAggregate.Address                                                        61.9%
+  eShop.Ordering.Domain.AggregatesModel.OrderAggregate.Order                                                          87.3%
+  eShop.Ordering.Domain.AggregatesModel.OrderAggregate.OrderItem                                                      91.1%
+  eShop.Ordering.Domain.Events.BuyerAndPaymentMethodVerifiedDomainEvent                                                100%
+  eShop.Ordering.Domain.Events.OrderCancelledDomainEvent                                                                80%
+  eShop.Ordering.Domain.Events.OrderShippedDomainEvent                                                                 100%
+  eShop.Ordering.Domain.Events.OrderStartedDomainEvent                                                                 100%
+  eShop.Ordering.Domain.Events.OrderStatusChangedToAwaitingValidationDomainEvent                                       100%
+  eShop.Ordering.Domain.Events.OrderStatusChangedToPaidDomainEvent                                                      75%
+  eShop.Ordering.Domain.Events.OrderStatusChangedToStockConfirmedDomainEvent                                           100%
+  eShop.Ordering.Domain.Exceptions.OrderingDomainException                                                            33.3%
+  eShop.Ordering.Domain.Seedwork.Entity                                                                               95.8%
+  eShop.Ordering.Domain.SeedWork.Enumeration                                                                          91.8%
+  eShop.Ordering.Domain.SeedWork.ValueObject                                                                             0%
+
+Ordering.Infrastructure                                                                                                8.9%
+  eShop.Ordering.Infrastructure.EntityConfigurations.BuyerEntityTypeConfiguration                                      100%
+  eShop.Ordering.Infrastructure.EntityConfigurations.CardTypeEntityTypeConfiguration                                   100%
+  eShop.Ordering.Infrastructure.EntityConfigurations.ClientRequestEntityTypeConfiguration                              100%
+  eShop.Ordering.Infrastructure.EntityConfigurations.OrderEntityTypeConfiguration                                      100%
+  eShop.Ordering.Infrastructure.EntityConfigurations.OrderItemEntityTypeConfiguration                                  100%
+  eShop.Ordering.Infrastructure.EntityConfigurations.PaymentMethodEntityTypeConfiguration                              100%
+  eShop.Ordering.Infrastructure.Idempotency.ClientRequest                                                              100%
+  eShop.Ordering.Infrastructure.Idempotency.RequestManager                                                             100%
+  eShop.Ordering.Infrastructure.MediatorExtension                                                                      100%
+  eShop.Ordering.Infrastructure.OrderingContext                                                                       40.6%
+  eShop.Ordering.Infrastructure.Repositories.BuyerRepository                                                          93.7%
+  eShop.Ordering.Infrastructure.Repositories.OrderRepository                                                            80%
+  Ordering.Infrastructure.Migrations.FixOrderitemseqSchema                                                               0%
+  Ordering.Infrastructure.Migrations.Initial                                                                             0%
+  Ordering.Infrastructure.Migrations.OrderingContextModelSnapshot                                                        0%
+  Ordering.Infrastructure.Migrations.Outbox                                                                              0%
+  Ordering.Infrastructure.Migrations.UseEnumForOrderStatus                                                               0%

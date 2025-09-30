@@ -5,6 +5,8 @@
     <GenerateErrorForMissingTargetingPacks>false</GenerateErrorForMissingTargetingPacks>
     <IsPublishable>false</IsPublishable>
     <IsPackable>false</IsPackable>
+    <!-- Coverage filters: exclude EF Core entity configurations & migrations -->
+    <Exclude>[Ordering.Infrastructure]*EntityTypeConfiguration;[Ordering.Infrastructure]*Migrations*;[Ordering.Infrastructure]*OrderingContextModelSnapshot*</Exclude>
   </PropertyGroup>
 
   <ItemGroup>
@@ -16,6 +18,12 @@
       <PrivateAssets>all</PrivateAssets>
       <IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
     </PackageReference>
+    <PackageReference Include="coverlet.collector">
+      <PrivateAssets>all</PrivateAssets>
+      <IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
+    </PackageReference>
+    <PackageReference Include="coverlet.msbuild" />
+    <PackageReference Include="Microsoft.EntityFrameworkCore.InMemory" />
   </ItemGroup>
 
   <ItemGroup>

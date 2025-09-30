@@ -129,6 +129,33 @@ public class OrderAggregateTest
     }
 
     [TestMethod]
+    public void OrderStartedEvent_HasExpectedValues()
+    {
+        var userId = "user-1";
+        var userName = "fakeName";
+        var address = new Address("street","city","state","country","zip");
+        var cardTypeId = 3;
+        var cardNumber = "4111";
+        var cardSec = "999";
+        var holder = "Holder";
+        var exp = DateTime.UtcNow.AddMonths(3);
+
+        var order = new Order(userId, userName, address, cardTypeId, cardNumber, cardSec, holder, exp);
+
+        var evt = order.DomainEvents.Single() as OrderStartedDomainEvent;
+        Assert.IsNotNull(evt); // event exists
+        Assert.AreSame(order, evt!.Order);
+        Assert.AreEqual(userId, evt.UserId);
+        Assert.AreEqual(userName, evt.UserName);
+        Assert.AreEqual(cardTypeId, evt.CardTypeId);
+        Assert.AreEqual(cardNumber, evt.CardNumber);
+        Assert.AreEqual(cardSec, evt.CardSecurityNumber);
+        Assert.AreEqual(holder, evt.CardHolderName);
+        // allow small time difference
+        Assert.IsTrue((evt.CardExpiration - exp).TotalSeconds < 1, "Expiration differs unexpectedly");
+    }
+
+    [TestMethod]
     public void Add_event_Order_explicitly_raises_new_event()
     {
         //Arrange   
