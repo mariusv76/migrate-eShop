@@ -8,6 +8,7 @@
     <PackageReference Include="Yarp.ReverseProxy" />
     <PackageReference Include="Microsoft.Extensions.ServiceDiscovery.Yarp" />
     <PackageReference Include="AspNetCore.HealthChecks.Uris" />
+    <PackageReference Include="Polly.Core" VersionOverride="8.4.2" />
   </ItemGroup>
 
   <ItemGroup>
