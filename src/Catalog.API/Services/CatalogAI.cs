@@ -1,5 +1,5 @@
 ﻿using System.Diagnostics;
-using Microsoft.SemanticKernel.Embeddings;
+using Microsoft.Extensions.AI; // Add this using
 using Pgvector;
 
 namespace eShop.Catalog.API.Services;
@@ -7,14 +7,14 @@ namespace eShop.Catalog.API.Services;
 public sealed class CatalogAI : ICatalogAI
 {
     private const int EmbeddingDimensions = 384;
-    private readonly ITextEmbeddingGenerationService _embeddingGenerator;
+    private readonly IEmbeddingGenerator<string, Embedding<float>> _embeddingGenerator; // Updated interface
 
     /// <summary>The web host environment.</summary>
     private readonly IWebHostEnvironment _environment;
     /// <summary>Logger for use in AI operations.</summary>
     private readonly ILogger _logger;
 
-    public CatalogAI(IWebHostEnvironment environment, ILogger<CatalogAI> logger, ITextEmbeddingGenerationService embeddingGenerator = null)
+    public CatalogAI(IWebHostEnvironment environment, ILogger<CatalogAI> logger, IEmbeddingGenerator<string, Embedding<float>> embeddingGenerator = null)
     {
         _embeddingGenerator = embeddingGenerator;
         _environment = environment;
@@ -37,8 +37,9 @@ public sealed class CatalogAI : ICatalogAI
         {
             long timestamp = Stopwatch.GetTimestamp();
 
-            IList<ReadOnlyMemory<float>> embeddings = await _embeddingGenerator.GenerateEmbeddingsAsync(items.Select(CatalogItemToString).ToList());
-            var results = embeddings.Select(m => new Vector(m[0..EmbeddingDimensions])).ToList();
+            // Updated method call
+            var embeddings = await _embeddingGenerator.GenerateAsync(items.Select(CatalogItemToString).ToList());
+            var results = embeddings.Select(e => new Vector(e.Vector.Span[0..EmbeddingDimensions].ToArray())).ToList();
 
             if (_logger.IsEnabled(LogLevel.Trace))
             {
@@ -58,15 +59,16 @@ public sealed class CatalogAI : ICatalogAI
         {
             long timestamp = Stopwatch.GetTimestamp();
 
-            ReadOnlyMemory<float> embedding = await _embeddingGenerator.GenerateEmbeddingAsync(text);
-            embedding = embedding[0..EmbeddingDimensions];
+            // Updated method call
+            var embedding = await _embeddingGenerator.GenerateAsync([text]);
+            var vector = new Vector(embedding.First().Vector.Span[0..EmbeddingDimensions].ToArray());
 
             if (_logger.IsEnabled(LogLevel.Trace))
             {
                 _logger.LogTrace("Generated embedding in {ElapsedMilliseconds}s: '{Text}'", Stopwatch.GetElapsedTime(timestamp).TotalSeconds, text);
             }
 
-            return new Vector(embedding);
+            return vector;
         }
 
         return null;

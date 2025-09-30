@@ -1,4 +1,6 @@
 ﻿using eShop.Catalog.API.Services;
+using Microsoft.Extensions.AI;
+using Microsoft.SemanticKernel.Embeddings;
 using Microsoft.SemanticKernel;
 using Azure.AI.OpenAI;
 
@@ -36,8 +38,8 @@ public static class Extensions
         }
         else if (!string.IsNullOrWhiteSpace(builder.Configuration.GetConnectionString("openai")))
         {
-            builder.AddAzureOpenAIClient("openai");
-            builder.Services.AddOpenAITextEmbeddingGeneration(builder.Configuration["AIOptions:OpenAI:EmbeddingName"] ?? "text-embedding-3-small");
+            builder.AddOpenAIClientFromConfiguration("openai")
+                   .AddEmbeddingGenerator();
         }
 
         builder.Services.AddSingleton<ICatalogAI, CatalogAI>();
