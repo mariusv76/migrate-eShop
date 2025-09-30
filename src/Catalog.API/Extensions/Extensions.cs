@@ -1,6 +1,6 @@
 ﻿using eShop.Catalog.API.Services;
 using Microsoft.SemanticKernel;
-using OpenAI;
+using Azure.AI.OpenAI;
 
 public static class Extensions
 {
