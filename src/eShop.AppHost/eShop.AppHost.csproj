@@ -15,6 +15,13 @@
     <PackageReference Include="Aspire.Hosting.Redis" />
     <PackageReference Include="Aspire.Hosting.PostgreSQL" />
     <PackageReference Include="Aspire.Hosting.Azure.CognitiveServices" />
+    <PackageReference Include="AspNetCore.HealthChecks.Uris" VersionOverride="9.0.0" />
+    <PackageReference Include="Grpc.AspNetCore" VersionOverride="2.71.0" />
+    <PackageReference Include="Grpc.Tools" VersionOverride="2.72.0" />
+    <PackageReference Include="Microsoft.Extensions.DependencyInjection.Abstractions" VersionOverride="9.0.9" />
+    <PackageReference Include="Microsoft.Extensions.Options" VersionOverride="9.0.9" />
+    <PackageReference Include="Polly.Core" VersionOverride="8.6.3" />
+    <PackageReference Include="Microsoft.Extensions.Options.ConfigurationExtensions" VersionOverride="9.0.9" />
   </ItemGroup>
 
   <ItemGroup>
