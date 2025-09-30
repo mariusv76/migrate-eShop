@@ -19,6 +19,9 @@
       <IncludeAssets>runtime; build; native; contentfiles; analyzers</IncludeAssets>
     </PackageReference>
     <PackageReference Include="xunit" />
+    <PackageReference Include="AspNetCore.HealthChecks.Uris" VersionOverride="9.0.0" />
+    <PackageReference Include="Grpc.Tools" VersionOverride="2.72.0" />
+    <PackageReference Include="Npgsql.EntityFrameworkCore.PostgreSQL" VersionOverride="9.0.4" />
   </ItemGroup>
  
   <ItemGroup>
