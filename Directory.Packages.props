@@ -18,7 +18,7 @@
     <PackageVersion Include="Aspire.Hosting.PostgreSQL" Version="9.5.0" />
     <PackageVersion Include="Aspire.Hosting.RabbitMQ" Version="9.5.0" />
     <PackageVersion Include="Aspire.Hosting.Redis" Version="9.5.0" />
-    <PackageVersion Include="Aspire.Npgsql" Version="$(AspireVersion)" />
+    <PackageVersion Include="Aspire.Npgsql" Version="9.5.0" />
     <PackageVersion Include="Aspire.Npgsql.EntityFrameworkCore.PostgreSQL" Version="9.5.0" />
     <PackageVersion Include="Aspire.RabbitMQ.Client" Version="9.5.0" />
     <PackageVersion Include="Aspire.StackExchange.Redis" Version="9.5.0" />
